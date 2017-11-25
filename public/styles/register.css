@@ -1,0 +1,102 @@
+body
+{
+    background-image: url(/assets/images/computer-2242264_1920-min.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+p.form-title
+{
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 5%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+form
+{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0 auto;
+}
+
+form.login input[type="text"], form.login input[type="password"]
+{
+  width: 100%;
+  background: 0;
+  border: solid .1rem #e2e2e2;
+  outline: none !important;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: .5rem;
+  font-size: .8rem;
+  border-radius: .5rem;
+  padding: .8rem;
+}
+
+#login-btn, #reg-btn{
+  border: none;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 5rem;
+  background: #228cb5;
+  border: solid .1rem #228cb5;
+  color: #fff;
+  font-size: .8rem;
+  margin-bottom: 1rem;
+  margin-top: .5rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  outline: none !important;
+}
+
+#login-btn{
+  margin-top: -1rem;
+  background: #fff;
+  border: solid .1rem #228cb5;
+  color: #228cb5;
+}
+
+#login-btn:hover, #reg-btn:hover{
+  transition: .5s;
+  box-shadow: .1rem .1rem .2rem rgba(0,0,0,0.5);
+}
+
+form.login label, form.login a
+{
+    font-size: 12px;
+    font-weight: 400;
+    color: #474747;
+}
+
+form.login a:hover
+{
+    color: #2ecc71;
+}
+
+.login-box{
+  background: #fff;
+  width: 30rem;
+  margin: 0 auto;
+  margin-top: 6rem;
+  border-radius: 1rem;
+  box-shadow: .2rem .2rem .2rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+.login-box p {
+  color: #474747;
+  background: #e2e2e2;
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}

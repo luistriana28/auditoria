@@ -1,0 +1,45 @@
+body {
+  width:100px;
+  height:100px;
+  background: url(http://www.omahainvestmentadvisors.com/files/80244/client%20login.png);
+  font-family: 'Raleway', sans-serif;
+}
+.mediahoja {
+  width: 680px;
+    height: 500px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.logo {
+  color: white;
+}
+.btn-label {
+  position: relative;left: -12px;
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px 0 0 3px;
+}
+.btn-labeled {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.input-group { 
+  margin-bottom:10px; 
+}
+.separator { 
+  border-right: 1px solid #dfdfe0; 
+}
+.facebook,.twitter { 
+  min-width:170px; 
+}
+.facebook { 
+  background-color:#354E84;color:#fff; 
+}
+.twitter { 
+  background-color:#00A5E3;color:#fff; 
+}
