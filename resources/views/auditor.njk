@@ -1,127 +1,49 @@
 {% extends "templates.dashboard" %}
+{% block css %}
+<link rel="stylesheet" href="/libs/bootstrap-table/bootstrap-table.min.css">
+{% endblock %}
 {% block title %}
   Formulario de Auditor
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-5 col-md-offset-4">
-      <form class="form-horizontal" role="form">
-        <fieldset>
-          <!-- Form Name -->
-          <legend>Detalles del Auditor</legend>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 col-md-2 col-lg-2 control-label" for="textinput">Nombre</label>
-            <div class="col-sm-9 col-md-9 col-lg-9 ">
-              <input type="text" placeholder="Nombre" class="form-control">
-            </div>
-          </div>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 col-md-2 col-lg-2 control-label" for="textinput">Apellido</label>
-            <div class="col-sm-9 col-md-9 col-lg-9">
-              <input type="text" placeholder="Apellido" class="form-control">
-            </div>
-          </div>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 col-md-2 col-lg-2 control-label" for="textinput">Numero de empleado</label>
-            <div class="col-sm-9 col-md-9 col-lg-9">
-              <input type="text" placeholder="No empleado" class="form-control">
-            </div>
-          </div>
-          
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">Unidad</label>
-            <div class="col-sm-6">
-              <select class="form-control" >
-             <option value='777'>Direccion de direccion </option>
-            </select>
-            </div>
-
-            <label class="col-sm-2 control-label" for="textinput">Codigo unidad</label>
-            <div class="col-sm-2">
-              <input type="text" placeholder="Unidad" class="form-control">
-            </div>
-          </div>
-          
-        </fieldset>
-        <fieldset>
-        <legend>Permisos del usuario </legend>
-         <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-12 col-md-6 col-lg-6" for="textinput">Enviar correspondencia</label>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-              <select class="form-control" >
-             <option value='1'>Habilitar</option>
-             <option value='0'>Deshabilitar</option>
-            </select>
-            </div>
-            </div>
-            <div class="form-group">
-             <label class="col-sm-12 col-md-6 col-lg-6" for="textinput">Enviada</label>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-              <select class="form-control" >
-             <option value='1'>Habilitar</option>
-             <option value='0'>Deshabilitar</option>
-            </select>
-            </div>
-          </div>
-          
-           <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-12 col-md-6 col-lg-6" for="textinput">Recibir Correspondencia</label>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-              <select class="form-control" >
-            <option value='1'>Habilitar</option>
-             <option value='0'>Deshabilitar</option>
-            </select>
-            </div>
-            </div>
-            <div class="form-group">
-             <label class="col-sm-12 col-md-6 col-lg-6" for="textinput">Pemitir busqueda</label>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-              <select class="form-control" >
-            <option value='1'>Habilitar</option>
-             <option value='0'>Deshabilitar</option>
-            </select>
-            </div>
-          </div>
-          
-              <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-12 col-md-6 col-lg-6" for="textinput">Agregar unidades externas </label>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-              <select class="form-control" >
-            <option value='1'>Habilitar</option>
-             <option value='0'>Deshabilitar</option>
-            </select>
-            </div>
-            </div>
-            <div class="form-group">
-             <label class="col-sm-12 col-md-6 col-lg-6" for="textinput">Administrar usuarios</label>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-              <select class="form-control" >
-            <option value='1'>Habilitar</option>
-             <option value='0'>Deshabilitar</option>
-            </select>
-            </div>
-          </div>
-          <br>
-           <div class="control-group">
-             <!-- Button -->
-             <div class="controls">
-             <button class="btn btn-primary btn-block">Guardar</button>
-            </div>
-        </div>
-        
-        </fieldset>
-              </form>
-    </div><!-- /.col-lg-12 -->
-</div><!-- /.row -->
+<div class="row" id="sectionTable">
+  <div class="col-xs-12">
+    <div class="">
+      <button type="button" class="btn btn-primary" id="add">Registrar Nuevo Auditor</button><br><br>
+    </div>
+    <div>
+      <table id="auditorTable" class="table table-responsive table-stripped table-hovered">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{# Ocultamos esta seccion por el momento. Será mostrada en su momento #}
+<div class="row" hidden="hidden" id="sectionData">
+  <div class="col-xs-12">
+    <form role="form" class="form-horizontal">
+      <input class="form-control" type="text" placeholder="Username" id="username"/><br>
+            <input class="form-control" type="password" placeholder="Contraseña" id="password"/><br>
+            <input class="form-control" type="password" placeholder="Confirmar Contraseña" id="cpassword"/><br>
+    </form>
+  </div>
+  <div class="col-md-6"></div>
+  <div class="col-md-3"> <button class="btn-default btn btn-block" id="btnCancel">Cancelar</button></div>
+  <div class="col-md-3"><button class="btn-primary btn btn-block" id="reg-btn">Guardar</button></div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="/libs/jQuery/jquery-2.2.3.min.js" charset="utf-8"></script>
+<script src="/libs/bootstrap-table/bootstrap-table.min.js" charset="utf-8"></script>
+<script src="/libs/bootstrap-table/locale/bootstrap-table-es-MX.js" charset="utf-8"></script>
+<script src="/scripts/register.js" charset="utf-8"></script>
+<script type="text/javascript" src="/scripts/auditor.js"></script>
 {% endblock %}

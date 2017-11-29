@@ -1,0 +1,84 @@
+{% extends "templates.dashboard" %}
+
+{% block css %}
+<link rel="stylesheet" href="/libs/bootstrap-table/bootstrap-table.min.css">
+{% endblock %}
+
+{% block title %}
+  Formulario de Departamento
+{% endblock %}
+
+{% block content %}
+<div class="row" id="sectionTable">
+  <div class="col-xs-12">
+    <div class="">
+      <button type="button" class="btn btn-primary" id="add">Registrar Nuevo Departamento</button><br><br>
+    </div>
+    <div>
+      <table id="departamentoTable" class="table table-responsive table-stripped table-hovered">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Empresa</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{# Ocultamos esta seccion por el momento. Será mostrada en su momento #}
+<div class="row" hidden="hidden" id="sectionData">
+  <div class="col-xs-12">
+    <div class="">
+      <form role="form" class="form-horizontal">
+        <div class="form-group">
+          <label class="col-md-2 control-label">Nombre de Departmento</label>
+          <div class="col-md-10">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-envelope-o"></i>
+              </span>
+              <input type="text" class="form-control1" id="departamento" placeholder="VENTAS">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label">Descripcion</label>
+          <div class="col-md-10">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-envelope-o"></i>
+              </span>
+              <textarea class="form-control" id="descripcion" placeholder="Descripcion del Departamento"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label">Responsable</label>
+            <div class="col-md-10">
+              <div class="input-group">
+                <select class="form-control" id="auditor">
+                  {% for user in audits %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-6"></div>
+  <div class="col-md-3"> <button class="btn-default btn btn-block" id="btnCancel">Cancelar</button></div>
+  <div class="col-md-3"><button class="btn-primary btn btn-block" id="save">Guardar Información</button></div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="/libs/bootstrap-table/bootstrap-table.min.js" charset="utf-8"></script>
+<script src="/libs/bootstrap-table/locale/bootstrap-table-es-MX.js" charset="utf-8"></script>
+<script type="text/javascript" src="/scripts/empresa.js"></script>
+{% endblock %}

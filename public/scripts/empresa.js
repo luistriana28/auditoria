@@ -156,6 +156,7 @@ function consultingData(){
           <td>
             <button type="button" class="btn btn-primary btnUpd" data-obj='${JSON.stringify(el)}'>Actualizar</button>
             <button type="button" class="btn btn-danger btnDel" data-obj='${JSON.stringify(el)}'>Eliminar</button>
+            <button type="button" class="btn btn-success btnDep" data-obj='${JSON.stringify(el)}'>Departamento</button>
           </td>
         </tr>
       `);
@@ -190,6 +191,14 @@ $("body").on('click', '.btnUpd', function(event) {
     $("#save").data('business', obj.id);
     $("#sectionData").fadeIn('slow');
   });
+});
+
+//
+$("body").on('click', '.btnDep', function(event) {
+  // Obtenemos la información de la empresa ya que se la asignamos al boton
+  // al momento de llenar la tabla
+  var obj = $(this).data('obj');
+  window.location.href="/department/"+ obj.id;
 });
 
 // =====================================================
