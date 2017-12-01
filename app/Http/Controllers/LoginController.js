@@ -59,7 +59,7 @@ class LoginController {
       user.username = data.username
       user.password = yield Hash.make(data.password)
       user.token = yield Hash.make(data.username)
-      user.role = data.role
+      user.role = 'Administer'
       yield user.save()
       return res.send({
         'status':200

@@ -6,69 +6,76 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/styles/welcome.css">
   </head>
   <body>
-    <div class="mediahoja">
-      <div class="page-header">
-        <h1 class="logo">SuperNova <small>Bienvenido a nuestro Mundo!</small></h1>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                Iniciar Sesion</h3>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6 separator social-login-box"> <br />
-                    <a href="#" class="btn facebook btn-block" role="button">Login usando Facebook</a>
-                    <br />
-                    <a href="#" class="btn twitter btn-block" role="button">Login usando Twitter</a>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6 login-box">
-                    <form role="form">
-                      <div class="input-group">
+  <div class="centro">
+    <div class="panel panel-info">
+    <div class="panel-heading">
+    <h3 class="panel-title">SuperNova</h3>
+    </div>
+    <div class="panel-body">
+    <div class="col-xs-8 col-sm-8 col-md-12">
+    <form role="form">
+    <label>Usuario:</label><br>
+    <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                         <input id="username" type="text" class="form-control" placeholder="Username" required autofocus />
-                      </div>
-                      <div class="input-group">
+    </div>
+                      <label>Contraseña:</label><br>
+    <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                         <input id="password" type="password" class="form-control" placeholder="Password" required />
-                      </div>
-                      <p>
-                        <a href="#">No recuerdo Password?</a></p>
-                        Sin cuenta? <a href="register">Registrate Aqui!</a>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel-footer">
-                  <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" value="Remember">
-                          Recordarme
-                        </label>
-                      </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                      <button type="button" class="btn btn-labeled btn-success" id="login-btn">
-                      <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Entrar</button>
-                      <button type="button" class="btn btn-labeled btn-danger">
-                      <span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>Cancelar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    </div>
+                      <li id="resultado" data-toggle="modal" data-target="#sesion"><a>Registrate Ahora!</a></li>
+    </form>
+    </div>
+    <div class="panel-footer">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                      <button type="button" class="btn btn-success" id="login-btn">
+                      Entrar</button>
+                      <button type="button" class="btn btn-danger">
+                      Cancelar</button>
+                    </div></div>
             </div>
-          </div>
+            </div>
+            </div>
+    <div class="container">
+        <div class="modal fade" id="sesion" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Registro</h4>
+                </div>
+                <div class="modal-body">
+        <form  method="post">
+    <div class="form-group">
+    
+    <label>Usuario:</label><br>
+    <input type="text" class="form-control" placeholder="usuario" id="username" required><br>
+    <label>Contraseña:</label><br>
+    <input type="password" class="form-control" placeholder="Contraseña" id="password" required><br>
+    <label>Repetir Contraseña:</label><br>
+    <input type="password" class="form-control" placeholder="Contraseña" id="cpassword" required><br>
+    <button class="btn btn-primary" type="submit" id="reg-btn">Enviar</button>
+    </div>
+            </form>
+            </div>
+                  <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>  
+                </div>
+                
+            </div>
         </div>
-      </div>
+        </div>
+
     </body>
     <script type="text/javascript" src="/libs/jQuery/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="/scripts/login.js"></script>
+    
+    <script src="/scripts/register.js"></script>
   </html>

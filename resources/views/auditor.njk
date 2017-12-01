@@ -1,24 +1,30 @@
 {% extends "templates.dashboard" %}
+
 {% block css %}
 <link rel="stylesheet" href="/libs/bootstrap-table/bootstrap-table.min.css">
+  <style media="screen">
+    #btnFile{
+      cursor: pointer;
+    }
+  </style>
 {% endblock %}
+
 {% block title %}
-  Formulario de Auditor
+  Formulario de Auditoria
 {% endblock %}
 
 {% block content %}
 <div class="row" id="sectionTable">
   <div class="col-xs-12">
     <div class="">
-      <button type="button" class="btn btn-primary" id="add">Registrar Nuevo Auditor</button><br><br>
+      <button type="button" class="btn btn-primary" id="add">Registrar Auditoria</button><br><br>
     </div>
     <div>
-      <table id="auditorTable" class="table table-responsive table-stripped table-hovered">
+      <table id="empresasTable" class="table table-responsive table-stripped table-hovered">
         <thead>
           <tr>
-            <th>Username</th>
-            <th>Role</th>
-            <th>Acciones</th>
+            <th>Nombre</th>
+            <th>Codigo</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -26,24 +32,35 @@
     </div>
   </div>
 </div>
+
 {# Ocultamos esta seccion por el momento. Será mostrada en su momento #}
 <div class="row" hidden="hidden" id="sectionData">
   <div class="col-xs-12">
-    <form role="form" class="form-horizontal">
-      <input class="form-control" type="text" placeholder="Username" id="username"/><br>
-            <input class="form-control" type="password" placeholder="Contraseña" id="password"/><br>
-            <input class="form-control" type="password" placeholder="Confirmar Contraseña" id="cpassword"/><br>
-    </form>
+    <div class="">
+      <form role="form" class="form-horizontal">
+        <div class="form-group">
+          <label class="col-md-2 control-label">Nombre de la Auditoria</label>
+          <div class="col-md-10">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-envelope-o"></i>
+              </span>
+              <input type="text" class="form-control1" id="business" placeholder="Auditoria">
+            </div>
+          </div>
+        </div>
+      </form>
+      
+    </div>
   </div>
   <div class="col-md-6"></div>
   <div class="col-md-3"> <button class="btn-default btn btn-block" id="btnCancel">Cancelar</button></div>
-  <div class="col-md-3"><button class="btn-primary btn btn-block" id="reg-btn">Guardar</button></div>
+  <div class="col-md-3"><button class="btn-primary btn btn-block" id="save">Guardar Información</button></div>
 </div>
 {% endblock %}
+
 {% block js %}
-<script src="/libs/jQuery/jquery-2.2.3.min.js" charset="utf-8"></script>
 <script src="/libs/bootstrap-table/bootstrap-table.min.js" charset="utf-8"></script>
 <script src="/libs/bootstrap-table/locale/bootstrap-table-es-MX.js" charset="utf-8"></script>
-<script src="/scripts/register.js" charset="utf-8"></script>
-<script type="text/javascript" src="/scripts/auditor.js"></script>
+  <script type="text/javascript" src="/scripts/auditoria.js"></script>
 {% endblock %}

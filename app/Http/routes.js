@@ -22,7 +22,7 @@ Route.on('/dashboard').render('templates.dashboard')
 Route.on('/register').render('register')
 Route.on('/empresas').render('empresas')
 Route.on('/auditor').render('auditor')
-Route.on('/departamento').render('departamento')
+Route.on('/departamentos').render('departamentos')
 
 
 //Route.on('/dashboard').render('templates.opciones') ejercico de ruta
@@ -30,13 +30,19 @@ Route.on('/departamento').render('departamento')
 Route.post('/login', 'LoginController.login')
 Route.get('/logout', 'LoginController.logout')
 Route.post('/reg', 'LoginController.reg')
-Route.get('/department/:id', 'departmentController.renderView')
 
 // Rutas especificas para la gestion de las empresas
 Route.post('/savebusiness', 'BusinessController.save')
 Route.post('/getAllBusiness', 'BusinessController.getAllBusiness')
 Route.post('/updateBusiness', 'BusinessController.update')
 Route.post('/inactivebusiness', 'BusinessController.inactive')
-Route.post('/updateAuditor', 'AuditorController.update')
-Route.post('/getAllAuditor', 'AuditorController.getAllAuditor')
-Route.post('/inactiveAuditor', 'AuditorController.inactive')
+
+Route.post('/saveauditoria', 'auditoriaController.save')
+Route.post('/getAllAuditoria', 'auditoriaController.getAllAuditoria')
+Route.post('/updateaudits', 'auditoriaController.update')
+Route.post('/inactiveaudits', 'auditoriaController.inactive')
+
+Route.post('/savedepartamento', 'departamentoController.save')
+Route.post('/getAllDepartamento', 'departamentoController.getAllDepartamento')
+Route.post('/updatedepartments', 'departamentoController.update')
+Route.post('/inactivedepartments', 'departamentoController.inactive')

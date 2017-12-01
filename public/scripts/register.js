@@ -1,42 +1,40 @@
 'use strict'
 
-function getValuesrec(){
+function getValues(){
   const value = {
     'username': $("#username").val(),
     'password': $("#password").val(),
-    'cpassword': $("#cpassword").val(),
-    'role': 'auditor'
+    'cpassword': $("#cpassword").val()
   }
   return value;
 }
 
 
 $("#reg-btn").click(function(e){
-  if ($(this).data('accion') == "registrar"){
-    let values = getValuesrec();
-    if (values.password != values.cpassword) {
-      alert ("Contraseñas no coinciden")
+  let values = getValues();
+  if (values.password != values.cpassword) {
+    alert ("Contraseñas no coinciden")
+    window.location.href='/master'
+  }
+  else{
+    $.ajax({
+    'url': '/reg',
+    'method': 'POST',
+    'data': values
+  })
+  .done(function(res){
+    console.log(res);
+    if (res.status == 200){
+      window.location.href='/'
     }
-    else{
-      $.ajax({
-      'url': '/reg',
-      'method': 'POST',
-      'data': values
-    })
-    .done(function(res){
-      console.log(res);
-      if (res.status == 200){
-        window.location.reload()
+    else {
+      if (res.status == 1001){
+        alert('Username ya existe')
       }
-      else {
-        if (res.status == 1001){
-          alert('Username ya existe')
-        }
-      }
-    })
-    .fail(function(err){
-      console.log("Error", err);
-    });
     }
+  })
+  .fail(function(err){
+    console.log("Error", err);
+  });
   }
 });
