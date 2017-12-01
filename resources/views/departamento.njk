@@ -20,6 +20,8 @@
           <tr>
             <th>Nombre</th>
             <th>Empresa</th>
+            <th>Auditor</th>
+            <th>Descripcion</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -73,7 +75,7 @@
   </div>
   <div class="col-md-6"></div>
   <div class="col-md-3"> <button class="btn-default btn btn-block" id="btnCancel">Cancelar</button></div>
-  <div class="col-md-3"><button class="btn-primary btn btn-block" id="save">Guardar Información</button></div>
+  <div class="col-md-3"><button class="btn-primary btn btn-block" id="save" data-business="{{business}}">Guardar Información</button></div>
 </div>
 {% endblock %}
 
